@@ -5,6 +5,7 @@ $config = parse_ini_file('config.ini');
 // Declare Variables
 $dbSuccess = false;
 $dbVersion = false;
+$hostname = gethostname();
 
 // Connect to SQL Server
 $conn = @new mysqli($config['hostname'], $config['username'], $config['password'], $config['dbname']);
@@ -79,6 +80,7 @@ $conn->close(); ?>
                         if ($dbVersion) {echo '<span class="label label-info">'. $dbVersion;}
                         else {echo '<span class="label label-danger">Failed to load version data';}
                         ?></span></h3>
+                <h3>Hostname: <span class="label label-info"> $hostname </span></h3>
             </div>
 
             <div class="mastfoot">
